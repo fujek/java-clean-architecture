@@ -1,6 +1,5 @@
-package io.github.mat3e.filter;
+package io.github.mat3e.auth;
 
-import io.github.mat3e.service.TokenService;
 import org.springframework.http.HttpHeaders;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -22,7 +21,7 @@ public class AuthenticationFilter extends OncePerRequestFilter {
     private final UserDetailsService userDetailsService;
     private final TokenService tokenService;
 
-    public AuthenticationFilter(UserDetailsService userDetailsService, TokenService tokenService) {
+    AuthenticationFilter(UserDetailsService userDetailsService, TokenService tokenService) {
         this.userDetailsService = userDetailsService;
         this.tokenService = tokenService;
     }
