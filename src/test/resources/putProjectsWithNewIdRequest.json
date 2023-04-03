@@ -1,0 +1,18 @@
+{
+    "id": 111,
+    "name": "Example project 3",
+    "steps": [
+        {
+            "description": "First",
+            "daysToProjectDeadline": -2
+        },
+        {
+            "description": "Second",
+            "daysToProjectDeadline": 0
+        },
+        {
+            "description": "Third",
+            "daysToProjectDeadline": 2
+        }
+    ]
+}
