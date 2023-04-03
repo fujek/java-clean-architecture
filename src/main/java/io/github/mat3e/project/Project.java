@@ -1,4 +1,4 @@
-package io.github.mat3e.entity;
+package io.github.mat3e.project;
 
 import org.springframework.data.annotation.PersistenceConstructor;
 
@@ -26,7 +26,7 @@ public class Project {
         return id;
     }
 
-    public void setId(int id) {
+    void setId(int id) {
         this.id = id;
     }
 
@@ -50,7 +50,7 @@ public class Project {
         step.setProject(this);
     }
 
-    public void removeStep(ProjectStep step) {
+    void removeStep(ProjectStep step) {
         if (!steps.contains(step)) {
             return;
         }
