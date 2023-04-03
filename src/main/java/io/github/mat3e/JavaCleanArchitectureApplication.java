@@ -13,7 +13,7 @@ import org.springframework.context.event.ContextRefreshedEvent;
 import java.time.ZonedDateTime;
 
 @SpringBootApplication
-public class JavaCleanArchitectureApplication implements ApplicationListener<ContextRefreshedEvent> {
+class JavaCleanArchitectureApplication implements ApplicationListener<ContextRefreshedEvent> {
     public static void main(String[] args) {
         SpringApplication.run(JavaCleanArchitectureApplication.class, args);
     }
@@ -21,7 +21,7 @@ public class JavaCleanArchitectureApplication implements ApplicationListener<Con
     private final ProjectRepository projectRepository;
     private final TaskRepository taskRepository;
 
-    public JavaCleanArchitectureApplication(ProjectRepository projectRepository, TaskRepository taskRepository) {
+    JavaCleanArchitectureApplication(ProjectRepository projectRepository, TaskRepository taskRepository) {
         this.projectRepository = projectRepository;
         this.taskRepository = taskRepository;
     }

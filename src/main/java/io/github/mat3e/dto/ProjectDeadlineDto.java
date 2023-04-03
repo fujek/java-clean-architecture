@@ -9,7 +9,4 @@ public class ProjectDeadlineDto {
         return deadline;
     }
 
-    public void setDeadline(ZonedDateTime deadline) {
-        this.deadline = deadline;
-    }
 }

@@ -23,7 +23,7 @@ public class ProjectStep {
     private Project project;
 
     @PersistenceConstructor
-    public ProjectStep() {
+    ProjectStep() {
     }
 
     public ProjectStep(@NotNull String description, int daysToProjectDeadline, Project project) {
@@ -34,10 +34,6 @@ public class ProjectStep {
 
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getDescription() {

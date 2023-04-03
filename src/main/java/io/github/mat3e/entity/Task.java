@@ -25,7 +25,7 @@ public class Task {
     private Project project;
 
     @PersistenceConstructor
-    public Task() {
+    Task() {
     }
 
     public Task(@NotNull String description, ZonedDateTime deadline, Project project) {
@@ -36,10 +36,6 @@ public class Task {
 
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getDescription() {
@@ -86,7 +82,4 @@ public class Task {
         return project;
     }
 
-    public void setProject(Project project) {
-        this.project = project;
-    }
 }
