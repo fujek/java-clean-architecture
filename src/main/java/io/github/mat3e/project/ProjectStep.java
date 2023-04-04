@@ -26,7 +26,7 @@ public class ProjectStep {
     ProjectStep() {
     }
 
-    public ProjectStep(@NotNull String description, int daysToProjectDeadline, Project project) {
+    ProjectStep(@NotNull String description, int daysToProjectDeadline, Project project) {
         this.description = description;
         this.daysToProjectDeadline = daysToProjectDeadline;
         this.project = project;

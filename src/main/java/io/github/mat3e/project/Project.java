@@ -19,7 +19,7 @@ public class Project {
     private final Set<ProjectStep> steps = new HashSet<>();
 
     @PersistenceConstructor
-    public Project() {
+    Project() {
     }
 
     public int getId() {
@@ -42,7 +42,7 @@ public class Project {
         return steps;
     }
 
-    public void addStep(ProjectStep step) {
+    void addStep(ProjectStep step) {
         if (steps.contains(step)) {
             return;
         }
