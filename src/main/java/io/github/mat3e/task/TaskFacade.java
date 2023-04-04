@@ -1,6 +1,6 @@
 package io.github.mat3e.task;
 
-import io.github.mat3e.project.Project;
+import io.github.mat3e.project.query.SimpleProjectQuery;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,7 +20,7 @@ public class TaskFacade {
         return taskRepository.existsByDoneIsFalseAndProject_Id(projectId);
     }
 
-    public List<TaskDto> saveAll(final List<TaskDto> tasks, Project project) {
+    public List<TaskDto> saveAll(final List<TaskDto> tasks, SimpleProjectQuery project) {
         return taskRepository.saveAll(tasks.stream().map(t -> TaskFactory.from(t, project)).collect(toList())).stream().map(Task::toDto)
                 .collect(toList());
     }

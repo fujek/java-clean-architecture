@@ -1,6 +1,6 @@
 package io.github.mat3e.task;
 
-import io.github.mat3e.project.Project;
+import io.github.mat3e.project.query.SimpleProjectQuery;
 import org.springframework.data.annotation.PersistenceConstructor;
 
 import javax.persistence.*;
@@ -23,13 +23,13 @@ class Task {
     private String additionalComment;
     @ManyToOne
     @JoinColumn(name = "source_id")
-    private Project project;
+    private SimpleProjectQuery project;
 
     @PersistenceConstructor
     Task() {
     }
 
-    Task(@NotNull String description, ZonedDateTime deadline, Project project) {
+    Task(@NotNull String description, ZonedDateTime deadline, SimpleProjectQuery project) {
         this.description = description;
         this.deadline = deadline;
         this.project = project;
@@ -83,7 +83,7 @@ class Task {
         this.additionalComment = additionalComment;
     }
 
-    Project getProject() {
+    SimpleProjectQuery getProject() {
         return project;
     }
 

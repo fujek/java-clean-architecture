@@ -1,5 +1,6 @@
 package io.github.mat3e.project;
 
+import io.github.mat3e.project.query.SimpleProjectQuery;
 import io.github.mat3e.task.TaskDto;
 import io.github.mat3e.task.TaskFacade;
 import org.springframework.stereotype.Service;
@@ -19,7 +20,7 @@ public class ProjectFacade {
     private final ProjectStepRepository projectStepRepository;
     private final TaskFacade taskFacade;
 
-    ProjectFacade(ProjectRepository projectRepository, ProjectStepRepository projectStepRepository, TaskFacade taskFacade) {
+    ProjectFacade(final ProjectRepository projectRepository, ProjectStepRepository projectStepRepository, TaskFacade taskFacade) {
         this.projectRepository = projectRepository;
         this.projectStepRepository = projectStepRepository;
         this.taskFacade = taskFacade;
@@ -96,7 +97,7 @@ public class ProjectFacade {
                             .map(step -> TaskDto.builder().withDescription(step.getDescription())
                                     .withDeadline(projectDeadline.plusDays(step.getDaysToProjectDeadline())).build()
                             ).collect(toList());
-                    return taskFacade.saveAll(tasks, project);
+                    return taskFacade.saveAll(tasks, new SimpleProjectQuery(project.getId(), project.getName()));
                 }
         ).orElseThrow(() -> new IllegalArgumentException("No project found with id: " + projectId));
     }
