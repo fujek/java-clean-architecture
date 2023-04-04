@@ -1,6 +1,4 @@
-package io.github.mat3e.dto;
-
-import io.github.mat3e.entity.Task;
+package io.github.mat3e.task;
 
 import javax.validation.constraints.NotNull;
 import java.time.ZonedDateTime;
@@ -13,7 +11,7 @@ public class TaskDto {
     private ZonedDateTime deadline;
     private String additionalComment;
 
-    public TaskDto() {
+    TaskDto() {
     }
 
     public TaskDto(Task source) {
@@ -26,6 +24,10 @@ public class TaskDto {
 
     public int getId() {
         return id;
+    }
+
+    void setId(final int id) {
+        this.id = id;
     }
 
     public String getDescription() {
@@ -44,8 +46,4 @@ public class TaskDto {
         return additionalComment;
     }
 
-    public TaskDto setId(final int id) {
-        this.id = id;
-        return this;
-    }
 }
