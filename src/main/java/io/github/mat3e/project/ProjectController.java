@@ -10,9 +10,9 @@ import java.util.List;
 @RestController
 @RequestMapping("/projects")
 class ProjectController {
-    private final ProjectService projectService;
+    private final ProjectFacade projectService;
 
-    ProjectController(ProjectService projectService) {
+    ProjectController(ProjectFacade projectService) {
         this.projectService = projectService;
     }
 

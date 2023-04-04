@@ -11,7 +11,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
 @Table(name = "tasks")
-public class Task {
+class Task {
     @Id
     @GeneratedValue(strategy = IDENTITY)
     private int id;
@@ -29,17 +29,21 @@ public class Task {
     Task() {
     }
 
-    public Task(@NotNull String description, ZonedDateTime deadline, Project project) {
+    Task(@NotNull String description, ZonedDateTime deadline, Project project) {
         this.description = description;
         this.deadline = deadline;
         this.project = project;
     }
 
-    public int getId() {
+    int getId() {
         return id;
     }
 
-    public String getDescription() {
+    void setId(final int id) {
+        this.id = id;
+    }
+
+    String getDescription() {
         return description;
     }
 
@@ -47,7 +51,7 @@ public class Task {
         this.description = description;
     }
 
-    public boolean isDone() {
+    boolean isDone() {
         return done;
     }
 
@@ -55,7 +59,7 @@ public class Task {
         this.done = done;
     }
 
-    public ZonedDateTime getDeadline() {
+    ZonedDateTime getDeadline() {
         return deadline;
     }
 
@@ -63,7 +67,7 @@ public class Task {
         this.deadline = deadline;
     }
 
-    public int getChangesCount() {
+    int getChangesCount() {
         return changesCount;
     }
 
@@ -71,7 +75,7 @@ public class Task {
         this.changesCount = changesCount;
     }
 
-    public String getAdditionalComment() {
+    String getAdditionalComment() {
         return additionalComment;
     }
 
@@ -79,7 +83,17 @@ public class Task {
         this.additionalComment = additionalComment;
     }
 
-    public Project getProject() {
+    Project getProject() {
         return project;
+    }
+
+    TaskDto toDto() {
+        return TaskDto.builder()
+                .withId(id)
+                .withDone(done)
+                .withDescription(description)
+                .withDeadline(deadline)
+                .withAdditionalComment(additionalComment)
+                .build();
     }
 }
